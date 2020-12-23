@@ -10,37 +10,11 @@ public class TaksOne {
 
 	private static String DATAPATH = System.getProperty("user.dir") + "\\src\\Day\\four\\data.txt";
 
-	private static int counterFalse = 0;
 	private static int validPassports = 0;
 	private static int validPassportsByData = 0;
 
 	public static void main(String[] args) {
 
-		boolean flag = true;
-		String value[] = "hgt:193cm".split(":");
-		if (value[0].contains("hgt")) {
-			if (value[1].matches("^([0-9]{3}|[0-9]{2}|[0-9]{1})[cm|in]{2}")) {
-				String help = value[1].replaceFirst("[^0-9]+", "");
-				if (value[1].contains("cm")) {
-					if (Integer.parseInt(help) <= 193 && Integer.parseInt(help) >= 150) {
-					} else {
-						flag = false;
-					}
-				} else if (value[1].contains("in")) {
-					if (Integer.parseInt(help) <= 76 && Integer.parseInt(help) >= 59) {
-					} else {
-						flag = false;
-					}
-				} else {
-					flag = false;
-				}
-			} else {
-				flag = false;
-			}
-
-		}
-
-		System.out.println(flag);
 
 		try {
 			File myObj = new File(DATAPATH);
@@ -65,7 +39,6 @@ public class TaksOne {
 			scr.close();
 			System.out.println(validPassports);
 			System.out.println(validPassportsByData);
-			System.out.println(counterFalse);
 
 		} catch (FileNotFoundException e) {
 			System.out.println("An error occurred.");
